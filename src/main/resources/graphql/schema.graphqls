@@ -1,0 +1,83 @@
+type Query {
+    pets : [Pets]
+    bookById(id : ID!) : Book
+    allBooks: [Book!]!
+    petById(id: ID): Animal
+    searchBook(searchInput: SearchInput!): [Book]
+}
+
+type Book {
+    id: ID
+    name: String
+    rating: Float
+    pageCount: Int
+    author: Author
+}
+
+type Author {
+    id : ID
+    firstName: String
+    lastName: String
+}
+
+interface Animal{
+    id : ID!
+    name: String
+    @deprecated(reason: "Use classification of animal instead `Classification` ")
+    classification: Classification
+    age: Int
+}
+
+type Classification{
+    name: String
+    species: Species
+}
+
+type Dog implements Animal{
+    id : ID!
+    name: String
+    @deprecated(reason: "Use classification of animal instead `Classification` ")
+    age: Int
+    noise: Sound
+    classification: Classification
+}
+type Cat implements Animal{
+    id : ID!
+    name: String
+    @deprecated(reason: "Use classification of animal instead `Classification` ")
+    age: Int
+    noise: Sound
+    classification: Classification
+}
+
+type Duck implements Animal{
+    id : ID!
+    name: String
+    @deprecated(reason: "Use classification of animal instead `Classification` ")
+    age: Int
+    noise: Sound
+    classification: Classification
+}
+
+input SearchInput{
+    name: String
+    maxPage: Int
+    minPage: Int
+    rating: Float
+}
+union Pets = Dog | Cat | Duck
+
+enum Sound{
+    BARK
+    MEOWS
+    QUACKS
+}
+
+enum Species{
+    Mammal
+    Fish
+    Reptile
+    Bird
+    Plant
+    Amphibian
+}
