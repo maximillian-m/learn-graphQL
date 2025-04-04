@@ -20,8 +20,12 @@ public record Book(String id, String name, double rating, int pageCount, String 
         return books.stream().filter(x -> x.id.equalsIgnoreCase(bookId)).findFirst().orElse(null);
     }
 
+//    public static List<Book> allBooks() {
+//        return books;
+//    }
+
     public static List<Book> allBooks() {
-        return books;
+        throw new RuntimeException("Not implemented yet");
     }
 
     public static Book modifyBook(String bookName, String id) {

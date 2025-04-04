@@ -17,10 +17,14 @@ public record Duck(String id, String name, int age, Sound noise, Classification 
         );
     }
 
+//    @Override
+//    public Animal getById(String id) {
+//        return duckList().stream().filter(x -> x.id.equals(id)).findFirst()
+//                .orElse(null);
+//    }
     @Override
     public Animal getById(String id) {
-        return duckList().stream().filter(x -> x.id.equals(id)).findFirst()
-                .orElse(null);
+        throw new RuntimeException("Not supported yet.");
     }
 
     public static Classification getDuckClassification(){

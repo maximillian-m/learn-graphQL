@@ -37,7 +37,7 @@ public class BookController {
     }
 //    @SchemaMapping
     //For the cases like this it is recommended to use the data-loader to mitigate the problem resulting from N + 1 complexity
-    //Imaging for each list Item of book, it will have to execute a separate query or call an external service for each item, it will
+    //Imagine for each list Item of book, it will have to execute a separate query or call an external service for each item, it will
     //introduce great latency to the application and the wait time will increase significantly/
 //    public Author author(Book book){
 //        return Author.getById(book.authorId());
